@@ -7,16 +7,7 @@ import torchvision
 import pytorch_fid
 import numpy as np
 from skimage.measure import compare_ssim
-
-
-# The paths that stores the style images
-style1_path = "style1/"
-style2_path = "style2/"
-
-# The paths that stores the generated images
-out_path = "out_image/"
-
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+from variables import style1_path, style2_path, out_path
 
 
 def load_images(generate_path: str, style1: str, style2: str):
@@ -62,7 +53,7 @@ class metric:
         """
         Initialization.
         """
-        self.device = DEVICE
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
 
     def calculate(self, generate: Any, style1: Any, style2: Any) -> float:
         """
@@ -71,11 +62,9 @@ class metric:
         :param generate: dataloaders for generated images
         :param style1: dataloaders for images of one style
         :param style2: dataloaders for images of the other style
-        :return: the metriic score
+        :return: the metric score
         """
         raise NotImplementedError
-
-    #     TODO: Add any mutually used functions here
 
 
 class FID(metric):

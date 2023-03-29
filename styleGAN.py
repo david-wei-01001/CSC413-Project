@@ -6,17 +6,8 @@ import numpy as np
 import os
 import cv2
 from typing import Any
+from variables import style1_path, style2_path, out_path, img_size
 
-# Define the paths to the style images
-style1_path = "style1/"
-style2_path = "style2/"
-
-# Define the path to the output folder
-out_path = "out_image/"
-
-
-# Define the size of the generated image
-img_size = 256
 
 # Define the weights to use for style mixing
 alpha = 0.5
