@@ -7,7 +7,7 @@ import os
 import cv2
 from typing import Any
 
-# Define the paths to the content and style images
+# Define the paths to the style images
 style1_path = "style1/"
 style2_path = "style2/"
 
@@ -23,9 +23,11 @@ alpha = 0.5
 beta = 1 - alpha
 
 # Model URLs
-styleGAN1 = "https://tfhub.dev/google/stylegan/1"
-styleGAN2 = "https://tfhub.dev/google/stylegan2/1"
-styleGAN3 = "https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/1"
+styleGANs = {
+    1: "https://tfhub.dev/google/stylegan/1",
+    2: "https://tfhub.dev/google/stylegan2/1",
+    3: "https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/1"
+}
 
 
 # Define a function to load and preprocess images
@@ -117,6 +119,6 @@ class styleGAN:
 
 
 if __name__ == "__main__":
-    model = styleGAN(styleGAN1)
+    model = styleGAN(styleGANs[1])
     style1_out, style2_out = process_data()
     model.generate(style1_out, style2_out)
