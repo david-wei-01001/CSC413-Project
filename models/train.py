@@ -15,7 +15,7 @@ style2 = get_data(style2)
 content = get_data(content)
 
 model = MulLayer(latent_dimension)
-optimizer = torch.optim.Adam([{'params': model.parameters()}], lr=1e-3)
+optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
 
 
 def objective():
@@ -29,18 +29,19 @@ def objective():
            nn.MSELoss(size_average=False)(out, contentbatch) + KL
 
 
-def callback(t):
+def callback(t, loss_out):
     if t % 100 == 0:
-        print("Iteration {} lower bound {}".format(t, -objective(recognition_net, decoder_net)))
+        print("Iteration {} lower bound {}".format(t, loss_out))
 
 def update():
     optimizer.zero_grad()
     loss = objective()
     loss.backward()
     optimizer.step()
+    return loss
 
 
 print("Optimizing variational parameters...")
 for t in trange(0, n_iters):
-    update()
-    callback(t)
+    loss_out = update()
+    callback(t, loss_out)
