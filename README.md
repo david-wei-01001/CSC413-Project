@@ -16,3 +16,19 @@
    Feel free to play around with the hyperparameters.
    
    The main architecture is borrowed from [Amy Jiang's implementation](https://www.kaggle.com/code/amyjang/monet-cyclegan-tutorial/notebook), and dataset is from [UC Berkeley EECS](https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/)
+
+ - parse-printout
+
+   This file is provided to extrace the loss information from console log while training the conditional CycleGAN model. Please do some preprocessing to delete irrelevant log and leaving only the two lines sating current Epoch and loss information. Then in the first cell, paste and assign variable input to the pre-processed string, and run the code
+   
+ - Metric
+
+   This file contains all code for calculating the following 3 metrics: Structural Similarity (SSIM), Style Consistency Loss, and Fréchet Inception Distance (FID)
+   
+   To run the code, you have to upload 2 zip files: 
+    - NST input output result.zip: the output of NST model
+    - cycleGAN out_image.zip: the output of conditional cycleGAN model
+    
+    The original content images, style1 images, and style2 images should be included in NST input output result.zip. And each zip file should also include the four set of outputs: photo_to_monet, monet_to_vangogh, photo_to_vangogh, and vangogh_to_monet.
+    
+    To run the code, you should set the "out_p
