@@ -1,4 +1,4 @@
-# CSC413-Project: Monetizing Arts
+# CSC413-Project: Multistyle Transfer
 
 ## Code
  This include the code of our project. Each file is an .ipynb and should be run on Google Colab with GPU connected. 
