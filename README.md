@@ -31,4 +31,6 @@
     
     The original content images, style1 images, and style2 images should be included in NST input output result.zip. And each zip file should also include the four set of outputs: photo_to_monet, monet_to_vangogh, photo_to_vangogh, and vangogh_to_monet.
     
-    To run the code, you should set the "out_p
+    To run the code, you should set the "out_path" to one of the 4 above, and uncomment either the NST or GAN part of code and choose either load_image_NST or load_image_GAN accordingly. 
+    
+    The code for computing FID score is borrowed form https://machinelearningmastery.com/how-to-implement-the-frechet-inception-distance-fid-from-scratch/
